@@ -1,4 +1,4 @@
-FROM fedora:28
+FROM registry.fedoraproject.org/fedora:28 
 
 COPY root /
 RUN dnf install -y vim which findutils procps-ng openssl git which && \
