@@ -2,9 +2,10 @@ FROM registry.fedoraproject.org/fedora:28
 
 COPY root /
 RUN dnf install -y vim which findutils procps-ng openssl git which && \
-     touch /etc/machine-id && \
-     rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
-    dnf install -y code
+    touch /etc/machine-id && \
+    rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
+    dnf install -y code libX11-xcb && \
+    dnf clean all
 
 ENV APP_ROOT=/opt/app-root
 ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
