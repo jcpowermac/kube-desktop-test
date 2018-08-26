@@ -1,7 +1,7 @@
 FROM registry.fedoraproject.org/fedora:28 
 
 COPY root /
-RUN dnf install -y xorg-x11-xinit xorg-x11-server-Xorg xorg-x11-drv-intel i3 vim which findutils procps-ng openssl git which && \
+RUN dnf install -y xorg-x11-drv-libinput xorg-x11-drv-evdev xorg-x11-xinit xorg-x11-server-Xorg xorg-x11-drv-intel i3 vim which findutils procps-ng openssl git which && \
     touch /etc/machine-id && \
     rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
     dnf install -y code libX11-xcb && \
