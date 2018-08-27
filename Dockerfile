@@ -9,6 +9,7 @@ RUN dnf install -y libinput hostname xorg-x11-drv-libinput xorg-x11-drv-evdev xo
 
 ENV APP_ROOT=/opt/app-root UID=1000
 ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT} USER_NAME=user
+COPY user/ ${APP_ROOT}
 COPY bin/ ${APP_ROOT}/bin/
 
 RUN useradd -u ${UID} -g 0 -d ${HOME} ${USER_NAME} && \ 
@@ -20,4 +21,4 @@ USER ${USER_NAME}
 WORKDIR ${APP_ROOT}
 
 ENTRYPOINT [ "uid_entrypoint" ]
-CMD run "startx :1" 
+CMD run "startx /usr/bin/i3 -- :1" 
