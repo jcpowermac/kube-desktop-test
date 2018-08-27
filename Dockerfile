@@ -20,5 +20,4 @@ USER ${USER_NAME}
 WORKDIR ${APP_ROOT}
 
 ENTRYPOINT [ "uid_entrypoint" ]
-EXPOSE 8080
 CMD run "startx :1" 
